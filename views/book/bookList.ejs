@@ -1,0 +1,18 @@
+<h1>NameCard List</h1>
+<table class="table table-sm table-bordered" style="width:600px">
+    <%
+        var i =0;
+        while(i < results.length){
+    %>
+    <tr>
+        <td><img src='/<%=results[i].img%>' width='100px' height="100px"/></td>
+        <td class="td td-sm"><%=results[i].name%></td>
+        <td><%=results[i].description%></td>
+        <td><a href="/book/update/<%=results[i].id%>">update</a></td>
+        <td><a href="/book/delete_process/<%=results[i].id%>">delete</a></td>
+    </tr>
+    <%
+        i++;
+        }
+    %>
+</table>

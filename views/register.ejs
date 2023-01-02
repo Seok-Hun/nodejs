@@ -1,0 +1,12 @@
+<h1>회원가입</h1>
+<form action="/register_process" method="post">
+    <p>로그인 ID*<input type="text" name="loginid" value="<%=loginid%>" style="width:400px; border-color:antiquewhite;" placeholder="ID"></p>
+    <p>Password *<input type="text" name="password" value="<%=password%>" style="width:400px; border-color:antiquewhite;"></p>
+    <p>이름 *<input type="text" name="name" value="<%=name%>" style="width:400px; border-color:antiquewhite;" placeholder="이름"></p>
+    <p>주소<input type="text" name="address" value="<%=address%>" style="width:400px; border-color:antiquewhite;" placeholder="25자 이하"></p>
+    <p>전화번호 *<input type="text" name="tel" value="<%=tel%>" style="width:400px; border-color:antiquewhite;" placeholder="000-0000-0000"></p>
+    <p>생일 *<input type="text" name="birth" value="<%=birth%>" style="width:400px; border-color:antiquewhite;" placeholder="00000000"></p>
+    <input hidden type="text" name="class" value="<%=Class%>">
+    <input hidden type="text" name="grade" value="<%=grade%>">
+    <p><input class="btn btn-primary" type="submit" value="Sign in"></p>
+</form>

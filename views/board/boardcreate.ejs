@@ -1,0 +1,35 @@
+<% if (kind == 'C') {
+    //게시글 작성(C)인 경우
+    ///board/create_process로 post
+    %>
+    <h1>게시물 작성  </h1>
+    <form action="/board/create_process" method="post">
+<% }else { 
+    //게시글 수정(U)인 경우
+    ///board/update_process로 post
+    %>
+    <h1>게시물 수정  </h1>
+    <form action="/board/update_process" method="post">
+<% }%>
+        <table class="table">
+            <tr><td style="width : 150px;">제목 : &nbsp;</td><td><input type="text" name="title" value="<%=title%>" style="width : 800px;"></td></tr>
+            <tr><td style="width : 150px;">작성자 : &nbsp;</td><td><input type="text" name = "nm" value="<%=name%>" disabled ></td></tr>
+            <tr><td style="width : 150px;">비밀번호 : &nbsp;</td><td><input type="password" name = "pwd"></td></tr>
+            <tr><td colspan = "2" ><textarea name="content" cols="127" rows="15"><%=content%></textarea></td></tr>
+        </table>
+        <div style = "text-align: right;width : 1100px;">
+            <input type="submit" value="저장">
+            <input type="hidden" name = "id" value="<%=id%>" >
+            <input type="hidden" name = "boardid" value="<%=boardid%>" >
+            <input type="hidden" name = "nmh" value="<%=name%>" >
+            <input type="hidden" name = "pNum" value="<%=pNum%>" >
+            <!--
+                id는 해당 게시글을 작성 및 수정하는 유저의 id
+                boardid는 해당 게시글의 id
+                nmh는 해당 게시글을 작성하는 유저의 이름
+                pNum은 해당 게시글이 속한 게시판 페이지 번호
+                이들을 hidden으로 하는 이유는 게시글 생성 및 수정 시 sql에 들어갈 데이터를 유저가 임의로 바꾸지 않고 자동으로 입력되도록 하기 위해서이다.
+            -->
+        </div>
+    </form>
+   

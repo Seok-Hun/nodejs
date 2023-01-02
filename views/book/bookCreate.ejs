@@ -1,0 +1,23 @@
+<% if (kindOfDoc=='C' ) { %>
+    <h1>Book 자료 생성</h1>
+    <form action="/book/create_process" method="post" enctype="multipart/form-data">
+        <% } else { %>
+            <h1>Book 자료 수정</h1>
+            <form action="/book/update_process/<%=pId%>" method="post" enctype="multipart/form-data">
+                <% } %>
+                    <p>제목 : <input type="text" name="name" value='<%=name%>'style="width:400px; border-color:antiquewhite;"></p>
+                    <p>출판사 : <input type="text" name="publisher" value='<%=publisher%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>저자 : <input type="text" name="author" value='<%=author%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>stock : <input type="number" name="stock" value='<%=stock%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>출판일 : <input type="text" name="pubdate" value='<%=pubdate%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>페이지 수 : <input type="number" name="pagenum" value='<%=pagenum%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>ISBN : <input type="text" name="ISBN" value='<%=ISBN%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>ebook : <input type="text" name="ebook" value='<%=ebook%>' style="width:400px; border-color:antiquewhite;" placeholder="Y or N"></p>
+                    <p>kdc : <input type="text" name="kdc" value='<%=kdc%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>표지 : <input type="file" accept="image/*" name="img" value="<%=img%>"></p>
+                    <p>가격 : <input type="number" name="price" value='<%=price%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>국가 : <input type="text" name="nation" value='<%=nation%>' style="width:400px; border-color:antiquewhite;"></p>
+                    <p>설명 : <textarea type="text" name="description" style="border-color:antiquewhite;"><%=description%></textarea></p>
+                    <p>by <%=id%></p>
+                    <p><input type="submit"></p>
+            </form>

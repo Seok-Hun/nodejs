@@ -1,0 +1,50 @@
+
+    <h1><%=kind
+        //현재 창 종류
+        %>
+    </h1>
+    <div style = "text-align: right;width : 1100px;">
+       <% if(logined) { 
+        //로그인한 상태이면 사용자가 글쓰기 버튼 사용가능
+        %>
+        <a href='/board/create'><input type="button" value="글쓰기"></a>
+       <%}%>
+    </div>
+    <table class="table">
+      <%  var i = 0;
+          while(i < board.length) {
+          //게시글의 수(board의 행 수)만큼 반복
+      %>
+            <tr>
+                <td><%=board[i].name
+                    //게시글 작성자
+                    %></td>
+                <td><a href='/board/view/<%=board[i].id%>/<%=pageNum%>'>
+                    <%=board[i].title
+                    //게시글 제목
+                    %></a></td>
+                <td><%=board[i].date
+                    //게시글 작성 시간
+                    %></td>
+            </tr>
+      <% 
+             i++; 
+          }  
+      %>
+    </table>
+
+    <%  
+    //게시판 하단의 페이지 선택
+    var j = 1;
+        while (j <= totalpages) { 
+            if(j == pageNum){ 
+            //현재 게시판 페이지에 해당하는 페이지 번호는 굵게 표시
+                %>
+                <span style="font-weight : bold;"><%=j%></span> &nbsp;&nbsp;
+            <% } else { 
+            //게시판 페이지 선택 링크
+                %>
+                <span><a href="/board/list/<%=j%>"><%=j%></a></span> &nbsp;&nbsp;
+     <%     } 
+            j++ 
+        } %>

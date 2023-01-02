@@ -1,0 +1,30 @@
+<h1>
+    <%=results[0].name%>
+</h1>
+<hr>
+<img src="/<%=results[0].img%>" style="width:200px;height:300px;" />
+<hr>
+
+<label>
+    <%=results[0].name%>
+</label>
+<label style="margin-left:10rem">저자 : <%=results[0].author%>
+</label>
+<hr>
+<form method="post">
+<label>
+    <%=results[0].price%>원
+</label>
+
+<% if(logined){ %>
+    
+    <label style="margin-left:7rem">수량:<input type="text" name="qty"></label>
+    <input hidden name="custid" value="<%=id%>">
+    <input hidden name="bookid" value="<%=results[0].id%>">
+        <hr>
+        <tr>
+            <td><button type="submit" formaction="/book/cart">장바구니</button></td>
+            <td><button type="submit" formaction="/book/purchase_detail">구매</button></td>
+        </tr>
+<% } %>
+</form>

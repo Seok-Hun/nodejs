@@ -1,0 +1,13 @@
+<h1>NameCard 자료 생성</h1>
+<% if (kindOfDoc == 'C') { %>
+    <form action="/namecard/create_process" method="post">
+ <% } else { %>
+    <form action="/namecard/update_process/<%=pId%>" method="post">
+<% } %>
+    <p><input type="text" name="title" value="<%=title%>" style="width:400px; border-color:antiquewhite;" placeholder="name"></p>
+    <p><textarea name="description" placeholder="description" cols="60" style="border-color:antiquewhite;">
+<%=description%>
+        </textarea></p>
+    <p>by <%=id%></p>
+    <p><input type="submit"></p>
+</form>

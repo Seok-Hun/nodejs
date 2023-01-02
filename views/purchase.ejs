@@ -1,0 +1,45 @@
+<h1>구매 리스트</h1>
+<table class="table table-sm table-bordered" style="width:600px">
+    <tr class="text-center">
+        <th>표지</th>
+        <th>제목</th>
+        <th>구매일</th>
+        <th>가격</th>
+        <th>수량</th>
+        <th>총 가격</th>
+        <th>구매자</th>
+    </tr>
+    <%
+        var i =0;
+        var purchaseprice = 0;
+        var totalprice = 0;
+        var totalpoint = 0;
+        while(i < results.length){
+            totalpoint = totalpoint+results[i].qty*results[i].point
+            purchaseprice = results[i].price*results[i].qty
+            totalprice = totalprice+results[i].price*results[i].qty
+    %>
+    <tr class="text-center">
+        <td><img src='/<%=booklist[i].img%>' width='100px' height="100px"/></td>
+        <td class="td td-sm"><%=booklist[i].name%></td>
+        <td class="td td-sm"><%=results[i].purchasedate%></td>
+        <td class="td td-sm"><%=results[i].price%></td>
+        <td class="td td-sm"><%=results[i].qty%></td>
+        <td class="td td-sm"><%=purchaseprice%></td>
+        <% if(id==='admin'){%>
+            <td class="td td-sm"><%=results[i].custid%></td>
+        <%}%>
+        <td><a href="/purchase/delete_process/<%=results[i].purchaseid%>">구매 취소</a></td>
+    </tr>
+    <%
+        i++;
+        }
+    %>
+</table>
+<hr>
+<% if(id!='admin'){%>
+<div style="display: flex; justify-content: end;">
+    <p>총 가격 : <%=totalprice%> | </p>
+    <p>| 적립 포인트 : <%=totalpoint%></p>
+</div>
+<%}%>

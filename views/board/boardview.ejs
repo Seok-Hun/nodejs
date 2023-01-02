@@ -1,0 +1,51 @@
+<h1>
+    <%=kind
+    //현재 창 종류
+    %>
+</h1>
+<div style="text-align: right;width : 1100px;">
+    <a href="/board/list/<%=pageNum%>">
+        <input type="button" value="목록">
+    </a>
+</div>
+<table class="table">
+    <tr>
+        <td style="width : 150px;">
+            제목 : &nbsp;
+        </td>
+        <td>
+            <%=board[0].title
+            //게시글의 제목
+            %>
+        </td>
+    </tr>
+    <tr>
+        <td style="width : 150px;">
+            작성자 : &nbsp;
+        </td>
+        <td>
+            <%=board[0].name
+            //게시글 작성자
+            %>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <%=board[0].content
+            //게시글 내용
+            %>
+        </td>
+    </tr>
+</table>
+<div style="text-align: right;width : 1100px;">
+    <% if(logined===true && (id==board[0].loginid || id=='admin' ) ){ 
+    //로그인한 상태이고 로그인한 유저가 admin이거나 해당 게시글을 작성한 유저일 경우 if문 실행
+        %>
+        <a href="/board/update/<%=board[0].id%>/<%=pageNum%>">
+            <input type="button" value="수정">
+        </a>
+        <a href="/board/delete/<%=board[0].id%>/<%=pageNum%>" onclick="return confirm('삭제 하시겠습니까?')">
+            <input type="button" value="삭제">
+        </a>
+        <% } %>
+</div>

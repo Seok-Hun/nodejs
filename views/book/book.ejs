@@ -1,0 +1,28 @@
+<h1>
+    <%=kind%>
+</h1>
+<table class="table">
+    <% var i=0; while(i < booklist.length){ %>
+        <tr>
+            <td><img src="<%=booklist[i].img%>" style="width:100px;height:100px; "></td>
+            <td><a href="/book_detail/<%=booklist[i].id%>">
+                    <%=booklist[i].name%>
+                </a></td>
+            <td>
+                <%=booklist[i].publisher%>
+            </td>
+            <td>
+                <%=booklist[i].price%>원
+            </td>
+        </tr>
+        <% i++; } %>
+</table>
+<% var j=1; while (j <=totalpages) { if(j==pageNum){ %>
+    <span style="font-weight : bold;">
+        <%=j%>
+    </span> &nbsp;&nbsp;
+    <% } else { %>
+        <span><a href="/<%=j%>">
+                <%=j%>
+            </a></span> &nbsp;&nbsp;
+        <% } j++ } %>

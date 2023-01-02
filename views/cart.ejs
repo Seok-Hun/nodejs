@@ -1,0 +1,30 @@
+<h1>카트</h1>
+<table class="table table-sm table-bordered" style="width:600px">
+    <tr class="text-center">
+        <th>표지</th>
+        <th>제목</th>
+        <th>수량</th>
+        <th>구매일자</th>
+        <th>가격</th>
+    </tr>
+    <%
+        var i =0;
+        while(i < results.length){
+    %>
+    <tr class="text-center">
+        <td><img src='/<%=booklist[i].img%>' width='100px' height="100px"/></td>
+        <td class="td td-sm"><%=booklist[i].name%></td>
+        <td class="td td-sm"><%=results[i].qty%></td>
+        <td class="td td-sm"><%=results[i].cartdate%></td>
+        <td class="td td-sm"><%=booklist[i].price%></td>
+        <td><a href="/cart/delete_process/<%=results[i].cartid%>">취소</a></td>
+    </tr>
+    <%
+        i++;
+        }
+    %>
+</table>
+<form action="/book/purchase" method="post">
+    <input hidden name='cartdata' value="<%=JSON.stringify(results)%>">
+    <button type="submit" class="btn btn-primary">구매하기</button>
+</form>

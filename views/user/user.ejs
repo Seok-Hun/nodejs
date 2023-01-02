@@ -1,0 +1,31 @@
+<h1>User</h1>
+<table class="table table-sm table-bordered">
+    <tr>
+        <th>아이디</th>
+        <th>비밀번호</th>
+        <th>이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+        <th>생년월일</th>
+        <th>학과</th>
+        <th>학년</th>
+    </tr>
+    <%
+        var i=0;
+        while(i < results.length){
+    %>
+    <tr>
+        <td class="td td-sm"><%=results[i].loginid%></td>
+        <td><%=results[i].password%></td>
+        <td><%=results[i].name%></td>
+        <td><%=results[i].address%></td>
+        <td><%=results[i].tel%></td>
+        <td><%=results[i].birth%></td>
+        <td><%=results[i].class%></td>
+        <td><%=results[i].grade%></td>
+    </tr>
+    <%
+            i++;
+        }
+    %>
+</table>
